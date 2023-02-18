@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	. "find-rectangles-test/services"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	maxValue := 10
+	initialPoints := GeneratePoints(20, maxValue)
+
+	PrintCoordinateSys(initialPoints, maxValue)
+
+	lines := CreateLines(initialPoints)
+
+	rects := FindRects(lines)
+
+	for _, value := range rects {
+		fmt.Println(value.ToString())
+	}
 }
